@@ -3,3 +3,4 @@ venv/
 *.pyo
 *.pyd
 *.spec
+__pycache__/

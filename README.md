@@ -60,3 +60,17 @@
 既存のPythonが別バージョンでも3.13.0を使いたい場合
 - WindowsではインストールしたPythonのパスを直接指定する方法が確実です。
 - Macではbrewを使う場合、以下のようにバージョンを指定できます: `brew link --overwrite python@3.13` これで、確実にPython 3.13.0の仮想環境を作成できます！
+
+### ライブラリのインストール
+
+1. requirementsをインストールします。 `pip install -r requirements.txt`
+
+## パッケージ化
+
+### pyinstallerのインストール
+
+1. pyinstallerをインストールします。 `pip install pyinstaller`
+2. ビルドします
+    - Windowsの場合: `pyinstaller --onefile your_script.py`
+    - Macの場合: `pyinstaller --onefile your_script.py`
+3. distフォルダ内に生成された実行ファイルを確認します。

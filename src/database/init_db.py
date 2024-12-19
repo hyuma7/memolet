@@ -13,7 +13,7 @@ def init_database():
     )
     ''')
 
-    # memosテーブルの作成
+    # memosテーブルの作成（commandカラムを削除）
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS memos (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,8 +22,19 @@ def init_database():
         content TEXT NOT NULL,
         created_at DATETIME NOT NULL,
         project_path TEXT,
-        command TEXT,
         FOREIGN KEY (user_id) REFERENCES users (id)
+    )
+    ''')
+
+    # commandsテーブルの作成
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS commands (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        memo_id INTEGER NOT NULL,
+        command TEXT NOT NULL,
+        name TEXT NOT NULL,
+        order_index INTEGER NOT NULL,
+        FOREIGN KEY (memo_id) REFERENCES memos (id) ON DELETE CASCADE
     )
     ''')
 
